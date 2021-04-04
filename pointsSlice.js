@@ -4,7 +4,14 @@ export const pointsSlice = createSlice({
     name: 'points',
     initialState: {
         value: 0,
-        actions: [],
+        actions: [
+
+
+            {name: 'add', points: 100, type: 'add'},
+            {name: 'remove', points: 100, type: 'remove'},
+
+
+        ],
     },
     reducers: {
         increment: state => {
@@ -18,7 +25,8 @@ export const pointsSlice = createSlice({
         },
         performAction: (state, action) => {
             const toBePerformed = state.actions.find(a => a.name === action.payload) 
-            state.value += parseInt(toBePerformed.points)
+            const points = parseInt(toBePerformed.points) 
+            toBePerformed.type === 'add' ? state.value += points : state.value -= points
         }
     }
 })
