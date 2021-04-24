@@ -43,12 +43,15 @@ const Home = ({ navigation }) =>  {
 				keyExtractor={deed => deed.name}
 				ListFooterComponent={<AddDeed openModal={() => setModalOpen(true)}/>}
 			/>
-			<TouchableOpacity
-				style={styles.common.nav}
-				onPress={() => navigation.navigate('Total')}
-			>
-				<Text style={{color: colors.text, fontSize: 30, fontWeight: 'bold', textAlign: 'center'}}>TOTAL</Text>
-			</TouchableOpacity>
+			<View style={styles.common.nav}>
+				<TouchableOpacity
+					//style={styles.common.nav}
+					onPress={() => navigation.navigate('Total')}
+				>
+						<Text style={{color: colors.text, fontSize: 30, fontWeight: 'bold', textAlign: 'center'}}>TOTAL</Text>
+
+					</TouchableOpacity>
+				</View>
 
 		</SafeAreaView>
 	)

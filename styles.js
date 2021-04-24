@@ -38,7 +38,6 @@ const deeds = StyleSheet.create({
 
 const common = StyleSheet.create({
     nav: {
-        flex: 2,
         padding: 15,
         width: '100%',
         backgroundColor: colors.background,
@@ -49,13 +48,13 @@ const common = StyleSheet.create({
         },
         shadowOpacity: 0.1,
         shadowRadius: 20,
-        elevation: 2
+        elevation: 2,
+        width: '100%'
     },
     centeredView: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 22
     },
     container: {
         flex: 1,

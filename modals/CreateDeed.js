@@ -16,9 +16,9 @@ const CreateDeed = ({visible, closeModal}) => {
     const [deedType, setDeedType] = useState("add")
     const [deedId, setDeedId] = useState()
     const [edit, setEdit] = useState(false)
+    const [switchValue, setSwitchValue] = useState(0)
     const editData = useSelector(state => state.input.editDeedData)
     const dispatch = useDispatch()
-    let initialSwitchValue = 0
 
 
     useEffect(() => {
@@ -28,8 +28,7 @@ const CreateDeed = ({visible, closeModal}) => {
             setDeedPoints(editData.points.toString())
             setDeedType(editData.type)
             setDeedId(editData.id)
-            initialSwitchValue = editData.type === "add" ? 0 : 1
-            console.log(initialSwitchValue)
+            setSwitchValue(editData.type === "add" ? 0 : 1)
         } else {
             setEdit(false)
         }
@@ -37,10 +36,11 @@ const CreateDeed = ({visible, closeModal}) => {
 
     const clear = () => {
         dispatch(setEditDeedData({}))
-        setDeedType('')
+        setDeedType('add')
         setDeedName('')
         setDeedPoints('')
         setDeedId('')
+        setSwitchValue(0)
     }
 
     const removeDeed = () => {
@@ -117,13 +117,16 @@ const CreateDeed = ({visible, closeModal}) => {
                             style={[styles.common.input, {marginTop: 10}]}
                             value={deedPoints} 
                             onChangeText={setDeedPoints}
-                            keyboardType="numeric"
+                            keyboardType="number-pad"
+                            returnKeyType='done'
                             placeholder="Points"
                             placeholderTextColor={colors.placeholder}
                         />
 
 
                         <SwitchSelector
+                            initial={switchValue}
+                            value={switchValue}
                             style={{marginTop: 10}}
                             buttonColor={deedType === "add" ? colors.green : colors.red}
                             backgroundColor={colors.secondaryBackground}
@@ -131,7 +134,6 @@ const CreateDeed = ({visible, closeModal}) => {
                             selectedColor={colors.text}
                             options={[{label: "Add points", value: "add"}, {label: "Remove points", value: "remove"}]}
                             onPress={value => setDeedType(value)}
-                            initial={0}
                             borderColor={colors.border}
                         />
 

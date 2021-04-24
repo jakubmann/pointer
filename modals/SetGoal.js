@@ -13,7 +13,7 @@ const SetGoal = ({visible, closeModal}) => {
     const dispatch = useDispatch()
     
     useEffect(() => {
-        setGoal(g)
+        setGoal(g.toString())
     }, [g])
 
     return (
@@ -37,6 +37,7 @@ const SetGoal = ({visible, closeModal}) => {
                             placeholder="Goal"
                             placeholderTextColor={colors.placeholder}
                             keyboardType='numeric'
+                            returnKeyType='done'
                     />
                     <AppButton
                         style={{backgroundColor: colors.green, paddingLeft: 20, paddingRight: 20, marginTop: 20}}

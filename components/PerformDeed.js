@@ -14,11 +14,13 @@ const PerformAction = ({ deed, dispatch, openModal}) => {
         Animated.sequence([
             Animated.timing(opacity, {
                 toValue: 1,
-                duration: 50 
+                duration: 50,
+                useNativeDriver: true
             }),
             Animated.timing(opacity, {
                 toValue: 0.15,
-                duration: 200
+                duration: 200,
+                useNativeDriver: true
             })
         ]).start()
     }
