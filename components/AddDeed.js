@@ -5,15 +5,15 @@ import styles from '../styles'
 import AppButton from './AppButton'
 import colors from '../config/colors'
 
-const AddAction = ({navigate}) => {
+const AddDeed = ({ openModal }) => {
     return (
-        <TouchableOpacity onPress={() => navigate('Create Action')}>
-            <View style={[styles.actions.action, {backgroundColor: colors.placeholder}]}>
+        <TouchableOpacity onPress={() => openModal()}>
+            <View style={[styles.deeds.deed, {backgroundColor: colors.background, borderWidth: 0.5}]}>
                 <Text style={{fontSize: 30, color: colors.text, textAlign: 'center'}}>+</Text>
             </View>
         </TouchableOpacity>
     )
 }
 
-export default AddAction
+export default AddDeed
 

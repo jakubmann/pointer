@@ -1,21 +1,31 @@
 import { StyleSheet } from 'react-native'
 import colors from './config/colors'
 
-const actions = StyleSheet.create({
-    action: {
+const deeds = StyleSheet.create({
+    deed: {
         padding: 10,
         fontSize: 20,
         textAlign: 'center', 
         margin: 10,
-        borderRadius: 3,
+        borderRadius: 10,
         width: '90%',
         borderColor: colors.border,
+        backgroundColor: 'transparent',
+        overflow: 'hidden',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 2,
+            height: 5 
+        },
+        shadowOpacity: 0.2,
+        shadowRadius: 20,
+        elevation: 2
     },
-    actionName: {
+    deedName: {
         fontSize: 20,
         color: colors.text,
     },
-    actionPoints: {
+    deedPoints: {
         textAlign: 'right',
         color: colors.text,
     },
@@ -23,17 +33,30 @@ const actions = StyleSheet.create({
         width: '100%',
         height: '90%',
     },
-    actionSelector: {
-        /*
-        container: {
-            width: '100%'
-        }
-        */
-    },
 })
 
 
 const common = StyleSheet.create({
+    nav: {
+        flex: 2,
+        padding: 15,
+        width: '100%',
+        backgroundColor: colors.background,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 2,
+            height: -5 
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 20,
+        elevation: 2
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22
+    },
     container: {
         flex: 1,
         margin: 10,
@@ -47,7 +70,7 @@ const common = StyleSheet.create({
     },
     input: {
         padding: 10,
-        fontSize: 20,
+        fontSize: 15,
         textAlign: 'center', 
         borderWidth: 0.3,
         margin: 5,
@@ -64,34 +87,44 @@ const common = StyleSheet.create({
         borderColor: colors.border,
     },
     buttonText: {
-        fontSize: 20,
-        textAlign: 'center',
-        color: colors.text,
-    },
-})
-
-const selector = StyleSheet.create({
-    selector: {
-        flexDirection: 'row',
-        marginTop: 20,
-    },
-    left: {
-        padding: 10,
-        borderRadius: 20,
-        flex: 0.5,
-        margin: 10,
-    },
-    right: {
-        padding: 10,
-        borderRadius: 20,
-        flex: 0.5,
-        margin: 10,
-    },
-    text: {
         fontSize: 15,
         textAlign: 'center',
         color: colors.text,
+    },
+    modal: {
+        margin: 20,
+        backgroundColor: colors.background, 
+        borderRadius: 20,
+        overflow: 'hidden',
+        width: '80%',
+        padding: 35,
+        shadowColor: "#000",
+        shadowOffset: {
+        width: 2,
+        height: 5 
+        },
+        shadowOpacity: 0.15,
+        shadowRadius: 4,
+        elevation: 2,
     }
 })
 
-export default { common, actions, selector }
+const history = StyleSheet.create({
+    container: {
+        margin: 10,
+    },
+    list: {
+        width: '90%',
+    },
+    item: {
+        padding: 10,
+        margin: 3,
+        borderRadius: 20,
+    },
+    points: {
+        fontSize: 17 
+    }
+})
+
+
+export default { common, deeds, history }
