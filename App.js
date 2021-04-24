@@ -8,7 +8,6 @@ import store from './store'
 
 import Home from './screens/Home'
 import Total from './screens/Total'
-import CreateAction from './screens/CreateAction'
 import colors from './config/colors'
 
 const navigationTheme = {
@@ -29,7 +28,6 @@ const App = () => {
 				<Stack.Navigator screenOptions={{headerShown: false}}>
 					<Stack.Screen name="Home" component={Home} />
 					<Stack.Screen name="Total" component={Total} />
-					<Stack.Screen name="Create Action" component={CreateAction} />
 				</Stack.Navigator>
 			</NavigationContainer>
 		</Provider>

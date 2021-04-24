@@ -1,45 +1,54 @@
-import React, { useEffect } from 'react'
-import { Button, SafeAreaView, Text, FlatList} from 'react-native'
-import { useSelector,useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { View, Button, SafeAreaView, Text, FlatList, TouchableOpacity} from 'react-native'
+import { useSelector, useDispatch } from 'react-redux'
 import styles from '../styles'
 
-import PerformAction from '../components/PerformAction'
+import PerformDeed from '../components/PerformDeed'
 import AppButton from '../components/AppButton'
-import AddAction from '../components/AddAction'
+import AddDeed from '../components/AddDeed'
+import CreateDeed from '../modals/CreateDeed'
+import colors from '../config/colors'
 
 const Home = ({ navigation }) =>  {
 	const dispatch = useDispatch()
-	const actions = useSelector(state => state.points.actions)
+	const deeds = useSelector(state => state.points.deeds)
+	const [modalOpen, setModalOpen] = useState(false)
 
 	const navigate = navigation.navigate
 
 	useEffect(() => {
-		console.log(actions)
+		console.log(deeds)
 	})
 
-	const actionItem = ({ item }) => (
-		<PerformAction
-			name={item.name}
-			points={item.points}
-			type={item.type}
+	const deedItem = ({ item }) => (
+		<PerformDeed
+			deed={item}
+			openModal={() => setModalOpen(true)}
 			dispatch={dispatch}
+
 		/>
 	)
 
 	return (
-		<SafeAreaView style={styles.container}>
+		<SafeAreaView style={styles.common.centeredView}>
+			<CreateDeed visible={modalOpen} closeModal={() => setModalOpen(false)} />
 			{/*
 			<Button style={styles.button} title="Add point" onPress={() => dispatch(increment())} />
 			<Button style={styles.button} title="Remove point" onPress={() => dispatch(decrement())} />
 			*/}
 			<FlatList
-				style={styles.actions.list}
-				data={actions}
-				renderItem={actionItem}
-				keyExtractor={action => action.name}
-				ListFooterComponent={<AddAction navigate={navigate}/>}
+				style={styles.deeds.list}
+				data={deeds}
+				renderItem={deedItem}
+				keyExtractor={deed => deed.name}
+				ListFooterComponent={<AddDeed openModal={() => setModalOpen(true)}/>}
 			/>
-			<AppButton title="Total" onPress={() => navigation.navigate('Total')} />
+			<TouchableOpacity
+				style={styles.common.nav}
+				onPress={() => navigation.navigate('Total')}
+			>
+				<Text style={{color: colors.text, fontSize: 30, fontWeight: 'bold', textAlign: 'center'}}>TOTAL</Text>
+			</TouchableOpacity>
 
 		</SafeAreaView>
 	)
