@@ -21,7 +21,7 @@ An app for self-motivation.
 From here you can view the app in a simulator or open it on a real device using expo.
 
 
-Run directly from expo on your device: https://expo.io/accounts/jakubmann/projects/Pointer
+Run directly from expo on your device: https://expo.io/@jakubmann/projects/Pointer
 
 ## Useful links
 https://expo.io/
