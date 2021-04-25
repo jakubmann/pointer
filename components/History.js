@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { FlatList, View } from "react-native";
+import { FlatList, View, Text } from "react-native";
 import { useSelector } from "react-redux";
 import styles from "../styles";
 
@@ -18,6 +18,7 @@ const History = () => {
 
   return (
     <View style={styles.history.container}>
+      {history.length === 0 ?  <Text>Nothing here yet.</Text> : null}
       <FlatList
         style={history.list}
         data={history}

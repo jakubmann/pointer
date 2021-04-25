@@ -56,6 +56,9 @@ const Home = ({ navigation }) => {
               fontSize: 30,
               fontWeight: "bold",
               textAlign: "center",
+              borderWidth: 0.5,
+              borderRadius: 20,
+              borderColor: colors.border
             }}
           >
             TOTAL
