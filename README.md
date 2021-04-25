@@ -16,6 +16,8 @@ An app for self-motivation.
 ## Running
 ``` yarn start ```
 
+Run directly from expo on your device: https://expo.io/accounts/jakubmann/projects/Pointer
+
 From here you can view the app in a simulator or open it on a real device using expo.
 
 ## Useful links
