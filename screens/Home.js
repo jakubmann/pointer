@@ -45,7 +45,6 @@ const Home = ({ navigation }) => {
         keyExtractor={(deed) => deed.name}
         ListFooterComponent={<AddDeed openModal={() => setModalOpen(true)} />}
       />
-      <View style={styles.common.nav}>
         <TouchableOpacity
           //style={styles.common.nav}
           onPress={() => navigation.navigate("Total")}
@@ -58,13 +57,14 @@ const Home = ({ navigation }) => {
               textAlign: "center",
               borderWidth: 0.5,
               borderRadius: 20,
-              borderColor: colors.border
+              borderColor: colors.border,
+              padding: 10,
+              marginBottom: 10
             }}
           >
             TOTAL
           </Text>
         </TouchableOpacity>
-      </View>
     </SafeAreaView>
   );
 };
